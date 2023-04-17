@@ -72,7 +72,7 @@ const navigate = useNavigate()
                     }}/>
 
           <div className="d-flex justify-content-between mb-4">
-            <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
+            {/* <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' /> */}
             <a href="!#">Forgot password?</a>
           </div>
 
@@ -90,9 +90,9 @@ navigate('/Register')
 
       <div className="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
 
-        <div className="text-white mb-3 mb-md-0">
+        {/* <div className="text-white mb-3 mb-md-0">
           Copyright © 2023. All rights reserved.
-        </div>
+        </div> */}
 
         <div>
 
@@ -115,7 +115,7 @@ navigate('/Register')
         </div>
 
       </div>
-      {done ? <></> :<><p>Register Faild</p> </> }
+      {done ? <></> :<><p>Login Faild</p> </> }
 
     </MDBContainer>
  
