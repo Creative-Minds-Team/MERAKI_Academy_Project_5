@@ -12,6 +12,7 @@ const Navbar = () => {
       <Link to="/CreateOrder"> Order </Link>
       <Link to="/CreateCraft"> Craft </Link>
       <Link to="/Comment"> Comment </Link>
+      <Link to="/Home"> Home </Link>
     </div>
     </div>
   )

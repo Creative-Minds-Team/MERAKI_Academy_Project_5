@@ -23,12 +23,13 @@ function App() {
         <Route path="/CreateOrder" element={<CreateOrder />} />
         <Route path="/CreatePost" element={<CreatePost />} />
         <Route path="/CreateCraft" element={<CreateCraft />} />
-        <Route path="/home" element={<Home />} />
+        {/* <Route path="/home" element={<Home />} /> */}
         <Route path="/Comment" element={<Comments />} />
         <Route path="/login" element={<Login />} />
       </Routes>
     </div>
   );
 }
+
 
 export default App;
