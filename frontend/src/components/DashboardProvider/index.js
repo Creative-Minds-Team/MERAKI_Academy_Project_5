@@ -19,16 +19,16 @@ const DashboardProvider = () =>{
     }
 })
 
-const DashboardProvider = () => {
-  const [orders, setOrders] = useState([]);
-  const navigate = useNavigate();
-  const state = useSelector((state) => {
-    return {
-      userId: state.auth.userId,
-      token: state.auth.token,
-      userInfo: state.auth.userInfo,
-    };
-  });
+// const DashboardProvider = () => {
+//   const [orders, setOrders] = useState([]);
+//   const navigate = useNavigate();
+//   const state = useSelector((state) => {
+//     return {
+//       userId: state.auth.userId,
+//       token: state.auth.token,
+//       userInfo: state.auth.userInfo,
+//     };
+//   });
 
   const ChartComponent = (props) => {
     const chartRef = useRef(null);
@@ -88,25 +88,23 @@ const DashboardProvider = () => {
   }
 
 
-  const getAllOrder = () => {
-    axios
-      .get(`http://localhost:5000/orders/${state.userId}`, {
-        headers: { Authorization: state.token },
-      })
-      .then((result) => {
-        setOrders(result.data.order);
-        console.log(orders);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  // const getAllOrder = () => {
+  //   axios
+  //     .get(`http://localhost:5000/orders/${state.userId}`, {
+  //       headers: { Authorization: state.token },
+  //     })
+  //     .then((result) => {
+  //       setOrders(result.data.order);
+  //       console.log(orders);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
   useEffect(() => {
     getAllOrder();
   }, []);
-  const to_notification = () => {
-    navigate("/getAllNotification");
-  };
+
 
   return (
     <div className="container_dashboard_provider">
