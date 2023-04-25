@@ -11,7 +11,7 @@ const register = async (req, res) => {
 
   const saltRounds = parseInt(process.env.SALT);
   const encryptedPassword = await bcrypt.hash(password, saltRounds);
-
+``
 
   
 
