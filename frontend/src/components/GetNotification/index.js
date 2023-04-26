@@ -12,21 +12,21 @@ const GetAllNotification = () => {
       token: state.auth.token,
     };
   });
-  const getNotifications = () => {
-    axios
-      .get(`http://localhost:5000/notifications`, {
-        headers: {
-          Authorization: state.token,
-        },
-      })
-      .then((result) => {
-        console.log(result.data.notification);
-        setNotifications(result.data.notification);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-<
+  // const getNotifications = () => {
+  //   axios
+  //     .get(`http://localhost:5000/notifications`, {
+  //       headers: {
+  //         Authorization: state.token,
+  //       },
+  //     })
+  //     .then((result) => {
+  //       console.log(result.data.notification);
+  //       setNotifications(result.data.notification);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+
     const getNotifications = ()=>{
         axios
         .get(`http://localhost:5000/notifications`,{headers: {
@@ -121,8 +121,8 @@ const GetAllNotification = () => {
         }
         </div>
 
-  };
-  useEffect(() => {
+  
+  {/* useEffect(() => {
     getNotifications();
   }, []);
   return (
@@ -137,7 +137,7 @@ const GetAllNotification = () => {
             </Card.Body>
           </Card>
         );
-      })}
+      })} */}
 
     </div>
   );

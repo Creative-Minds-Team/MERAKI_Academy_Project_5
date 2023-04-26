@@ -5,8 +5,13 @@ import Chart from "chart.js/auto";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const DashboardProvider = () =>{
-  const [orders, setOrders] = useState([])
+
+  
+  
+    
+
+const DashboardProvider = () => {
+  const [orders, setOrders] = useState([]);
   const [completed, setCompleted] = useState(0)
   const [pending, setPending] = useState(0)
   const [canceled, setCanceled] = useState(0)
@@ -19,16 +24,8 @@ const DashboardProvider = () =>{
     }
 })
 
-// const DashboardProvider = () => {
-//   const [orders, setOrders] = useState([]);
-//   const navigate = useNavigate();
-//   const state = useSelector((state) => {
-//     return {
-//       userId: state.auth.userId,
-//       token: state.auth.token,
-//       userInfo: state.auth.userInfo,
-//     };
-//   });
+
+  
 
   const ChartComponent = (props) => {
     const chartRef = useRef(null);
@@ -104,7 +101,9 @@ const DashboardProvider = () =>{
   useEffect(() => {
     getAllOrder();
   }, []);
-
+  // const to_notification = () => {
+  //   navigate("/getAllNotification");
+  // };
 
   return (
     <div className="container_dashboard_provider">
@@ -153,4 +152,4 @@ const DashboardProvider = () =>{
     </div>
   );
 };
-export default DashboardProvider;
+export default DashboardProvider
