@@ -79,3 +79,14 @@
     font-size: 20px;
     /* color: white; */
   }
+  .center-dont-have-yet{
+    background-color: #223d66;
+    display: flex;
+    width: 60%;
+    height: 55px;
+    /* padding-top: 1%; */
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 25px;
+    margin-top: 5%;
+  }

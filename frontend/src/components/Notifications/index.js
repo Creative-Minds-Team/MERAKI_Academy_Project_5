@@ -169,7 +169,8 @@ const Notifications = () => {
   }, []);
   return (
     
-    <div>
+    <div style={{minHeight:"80vh"}}>
+      
       {notifications?.map((noti, i) => {
         if (noti.status === "create_order") {
           const value = noti.description.split(":");
@@ -407,6 +408,15 @@ const Notifications = () => {
     
         
       })}
+      {notifications.length==0&&<>
+        <div className="center-dont-have-yet">
+          <div style={{marginTop:"10px",width:"100%",textAlign:"center"}}>
+            <h3 style={{color:"white"}}>
+              You dont have any notification
+            </h3>
+          </div>
+        </div>
+      </>}
     </div>
   );
 };

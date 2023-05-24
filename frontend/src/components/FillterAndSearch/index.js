@@ -86,6 +86,29 @@ const Home = () => {
     dispatch(setPost([]))
   },[])
   const mood = state.mood;
+  const testARcraft = (string)=>{
+    if (string=="Blacksmith") {
+      return "حداد"
+    }
+    if (string=="Tailor") {
+      return "خياط"
+    }
+    if (string=="Painter") {
+      return "دهان"
+    }
+    if (string=="Plumber") {
+      return "سباك"
+    }
+    if (string=="Electrician") {
+      return "فني كهرباء"
+    }
+    if (string=="mason") {
+      return "عامل بناء"
+    }
+    if (string=="Carpenter") {
+      return "نجار"
+    }
+  }
   return (
     <>
       {
@@ -155,7 +178,12 @@ const Home = () => {
               <div key={i}>
                 <MDBCard className="car">
                   <MDBCardTitle style={{backgroundColor:"#223d66",color:"white"}}>             
-                    <p className="titleInPost"style={{color:"white",marginTop:"-2%",marginBottom:"1%"}}>{post.title}
+                    <p className="titleInPost"style={{color:"white",marginTop:"-2%",marginBottom:"1%"}}>
+                    {state.language=="ar"?
+                      testARcraft(post.name)
+                      :
+                      post.name
+                    }
                     </p>
                   
                   </MDBCardTitle>
