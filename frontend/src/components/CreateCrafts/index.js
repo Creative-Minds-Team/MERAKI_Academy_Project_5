@@ -69,7 +69,7 @@ const CreateCraft = () => {
     });
   };
   return (
-    <div className="create-craft-container">
+    <div className="create-craft-container" style={{minHeight:"80vh"}}>
       <p>Hello Mr : {state.userInfo.first_name}</p>
       <p>
         This is your phone number that customers will contact you through :{" "}
@@ -77,7 +77,7 @@ const CreateCraft = () => {
       </p>
       <p>Please Select your maintenance from list : </p>
       <Dropdown>
-        <Dropdown.Toggle variant="primary" id="dropdown-basic">
+        <Dropdown.Toggle variant="primary" id="dropdown-basic" style={{backgroundColor:"#223d66",borderRadius:"10px"}}>
           {value}
         </Dropdown.Toggle>
         <Dropdown.Menu>
@@ -106,7 +106,7 @@ const CreateCraft = () => {
         <Button
           variant="primary"
           onClick={handleShow}
-          style={{ margin: "3%", borderRadius: "30px" }}
+          style={{ backgroundColor:"#223d66",margin: "3%", borderRadius: "30px" }}
         >
           Submit
         </Button>

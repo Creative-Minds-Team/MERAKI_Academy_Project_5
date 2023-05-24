@@ -19,11 +19,13 @@ const Home = () => {
   const [page, setPage] = useState(1);
   const [browse, setBrowse] = useState(false);
   const [limit, setLimit] = useState(6);
+  const [nameCraft, setNameCraft] = useState("")
 
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const state = useSelector((state) => {
+    console.log(state);
     return {
       posts: state.post.posts,
       mood: state.Mood.mood,
@@ -55,7 +57,33 @@ const Home = () => {
     navigate("/CreateOrder", { state: { id, user_id } });
   };
   const mood = state.mood;
+
   const playerRef = useRef(null);
+
+  const testARcraft = (string)=>{
+    if (string=="Blacksmith") {
+      return "حداد"
+    }
+    if (string=="Tailor") {
+      return "خياط"
+    }
+    if (string=="Painter") {
+      return "دهان"
+    }
+    if (string=="Plumber") {
+      return "سباك"
+    }
+    if (string=="Electrician") {
+      return "فني كهرباء"
+    }
+    if (string=="mason") {
+      return "عامل بناء"
+    }
+    if (string=="Carpenter") {
+      return "نجار"
+    }
+  }
+
   return (
     <>
       {
@@ -66,7 +94,7 @@ const Home = () => {
       <div class="row justify-content-between gy-5 flex-row-reverse">
         <div class="col-lg-6 order-1 order-lg-2 text-center text-lg-end">
           <img
-            src={require('./1.png')}
+            src={require('./3.PNG')}
             class="img-fluid"
             alt=""
             data-aos="zoom-out"
@@ -101,8 +129,8 @@ const Home = () => {
               <span> شاهد فيديو </span>
             </a>
             <p style={{ opacity: 0 }}>ss</p>
-            <a href="#book-a-table" className="btn-book-a-table" style={{fontSize:"20px"}}>
-              حجز موعد
+            <a href="#book-a-table" className="btn-book-a-table" style={{fontSize:"20px"}} onClick={()=>{navigate('/home/fillter')}}>
+              فلتر وبحث
             </a>
             
           </div>
@@ -127,13 +155,15 @@ const Home = () => {
                 <p
                   data-aos="fade-up"
                   data-aos-delay="100"
-                  style={{ color: "white" }}
+                  style={{ color: "white",fontWeight:"400" }}
                 >
                   A well-trained army of craftsmen is ready to serve you
                 </p>
                 <div className="d-flex" data-aos="fade-up" data-aos-delay="200">
-                  <a href="#book-a-table" className="btn-book-a-table">
-                    Book an Appointment
+                  <a href="#book-a-table" className="btn-book-a-table" onClick={()=>{navigate('/home/fillter')}}
+                  style={{backgroundColor:"#223d66"}}
+                  >
+                    Filter and Search
                   </a>
                   <a
                     href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
@@ -145,6 +175,7 @@ const Home = () => {
                 </div>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 text-center text-lg-start">
+
                 
                 <ReactPlayer url={require('./Video.mp4')} ref={playerRef} controls={true} />
 
@@ -155,50 +186,57 @@ const Home = () => {
         </section>
       </header> 
       }
-      <div className="container1" style={{}}>
-        {state.posts.map((post, i) => {
-          return (
-            <div key={i}>
-              {console.log(post)}
-              <MDBCard className="car">
-                <MDBCardTitle>             
-                  <p className="titleInPost">{post.name}
-                  </p>
-                
-                </MDBCardTitle>
-                
-                <MDBCardImage
-                  className="imgecard"
-                  src={post.post_image}
-                  position="top"
-                  alt="..."
-                />
-                <MDBCardBody>
-                <MDBCardText className="nameCard"> {post.first_name} {post.last_name}</MDBCardText>    
-                <MDBCardText className="nameCard"> <p className="titleInPost">{post.title}
-                  </p></MDBCardText>          
-                  <MDBCardText>{post.pricing} $/h</MDBCardText>
-                  <MDBBtn
-                    onClick={() => {
-                      toOrder(post.id, post.user_id);
-                      dispatch(setuserpostId(post.user_id));
-                      console.log(post.user_id);
-                    }}
-                  >
-                    {state.language == "ar"?"اطلب الان":"order now"}
-                  </MDBBtn>
-                </MDBCardBody>
-              </MDBCard>
-            </div>
-          );
-        })}
-      </div>
+
+        <div className="container1" style={{}}>
+          {state.posts.map((post, i) => {
+            // console.log(post);
+            // setNameCraft(post.name)
+            return (
+              <div key={i}>
+                <MDBCard className="car">
+                  <MDBCardTitle style={{backgroundColor:"#223d66",color:"white"}}>             
+                    <p className="titleInPost"style={{color:"white",marginTop:"-2%",marginBottom:"1%"}}>
+                      {state.language=="ar"?
+                      testARcraft(post.name)
+                      :
+                      post.name
+                    }
+                      </p>
+                  
+                  </MDBCardTitle>
+                  
+                  <MDBCardImage
+                    className="imgecard"
+                    src={post.post_image}
+                    position="top"
+                    alt="..."
+                  />
+                  <MDBCardBody>
+                  <MDBCardText className="nameCard"> {post.first_name} {post.last_name}</MDBCardText>              
+                    <MDBCardText>{post.pricing} $/h</MDBCardText>
+                    <MDBBtn
+                      onClick={() => {
+                        toOrder(post.id, post.user_id);
+                        dispatch(setuserpostId(post.user_id));
+                        console.log(post.user_id);
+                      }}
+                      style={{backgroundColor:"#223d66",borderRadius:"18px"}}
+                    >
+                      {state.language == "ar"?"اطلب الان":"order now"}
+                    </MDBBtn>
+                  </MDBCardBody>
+                </MDBCard>
+              </div>
+            );
+          })}
+        </div>
+
       <MDBBtn
         onClick={() => {
           setPage(page - 1);
           getAllPosts(page-1, limit);
         }}
-        style={{ marginBottom: "20px", marginTop: "20px" }}
+        style={{ marginBottom: "20px", marginTop: "20px" ,backgroundColor:"#223d66",borderRadius:"12px" }}
       >
         {state.language == "ar"?"السابق":"prev"}
       </MDBBtn>
@@ -207,7 +245,8 @@ const Home = () => {
           setPage(page + 1);
           getAllPosts(page+1, limit);
         }}
-        style={{ marginLeft: "20px", marginBottom: "20px", marginTop: "20px" }}
+        style={{ marginLeft: "20px", marginBottom: "20px", marginTop: "20px" ,backgroundColor:"#223d66",borderRadius:"12px"}}
+        
       >
         {state.language == "ar"?"التالي":"Next"}
       </MDBBtn>

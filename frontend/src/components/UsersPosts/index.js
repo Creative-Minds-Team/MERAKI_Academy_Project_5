@@ -20,6 +20,7 @@ const UserPosts = () => {
   const [deleteshow, setDeleteshow] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("")
+  const [id, setId] = useState(0)
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -65,6 +66,7 @@ const UserPosts = () => {
         if (res.data.success === true) {
           dispatch(deletePost(id));
         }
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -97,35 +99,54 @@ const UserPosts = () => {
     <div style={{marginLeft:"100px"}}>
     <div className="container-user-posts1">
       {state.posts.map((post, i) => {
+      //  setId(post.id)
         return (
-          <div key={i} className="change-hight-on-post">
-            
-            <MDBCard className="car">
-                <MDBCardImage className="imgecard2" src={post.post_image} position="top" alt="..." />
-                <MDBCardBody>
-                <MDBCardTitle>{post.title}</MDBCardTitle>              
-                <MDBCardText>${" "}{post.pricing}</MDBCardText>
-                <div className="btn_user_post">
-                <MDBBtn 
-                  onClick={(e) => {
-                    handleDeleteShow()
-                  }}
-                >
-                  delete post
-                </MDBBtn>
-                {" "}
-                <MDBBtn
-                  onClick={(e) => {
-                    handleShow();
-                  }}
-                >
-                  update post
-                </MDBBtn> </div>              
-              </MDBCardBody>
-            </MDBCard>
+          <div key={i}>
+                <MDBCard className="car">
+                  <MDBCardTitle style={{backgroundColor:"#223d66",color:"white"}}>             
+                    <p className="titleInPost"style={{color:"white",marginTop:"-2%",marginBottom:"1%"}}>{post.title}
+                    </p>
+                  
+                  </MDBCardTitle>
+                  
+                  <MDBCardImage
+                    className="imgecard"
+                    src={post.post_image}
+                    position="top"
+                    alt="..."
+                  />
+                  <MDBCardBody>
+                  <MDBCardText className="nameCard"> {post.first_name} {post.last_name}</MDBCardText>              
+                    <MDBCardText>{post.pricing} $/h</MDBCardText>
+                      <div className="btn_user_post">
+                        <MDBBtn 
+                          onClick={(e) => {
+                            setId(post.id)
+                            handleDeleteShow()
+                          }}
+                          style={{backgroundColor:"rgb(34, 61, 102)",borderRadius:"18px",marginLeft:"11%"}}
+                        >
+                          delete post
+                        </MDBBtn>
+                        {" "}
+                        <MDBBtn
+                          onClick={(e) => {
+                            setId(post.id)
+                            handleShow();
+                          }}
+                          style={{backgroundColor:"rgb(34, 61, 102)",borderRadius:"18px"}}
+                        >
+                          update post
+                        </MDBBtn>
+                      </div> 
+                      <p>{post.id}</p>
+                  </MDBCardBody>
+                </MDBCard>
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
-                <Modal.Title>Modal heading</Modal.Title>
+                <Modal.Title
+                style={{color:"white",backgroundColor:"rgb(34, 61, 102)",width:"100%",borderRadius:"18px"}}
+                >Update Post</Modal.Title>
 
               </Modal.Header>
               <Modal.Body>
@@ -144,15 +165,17 @@ const UserPosts = () => {
                 />
               </Modal.Body>
               <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
+                <Button variant="secondary" onClick={handleClose} 
+                style={{borderRadius:"18px"}}>
                   Close
                 </Button>
                 <Button variant="primary" onClick={
                     (e)=>{
                         handleClose()
-                        updateSelectedPost(post.id)
+                        updateSelectedPost(id)
                     }
-                }>
+                }
+                style={{backgroundColor:"rgb(34, 61, 102)",borderRadius:"18px"}}>
                   Save Changes
                 </Button>
               </Modal.Footer>
@@ -160,23 +183,28 @@ const UserPosts = () => {
 
             <Modal show={deleteshow} onHide={handleDeleteClose}>
               <Modal.Header closeButton>
-                <Modal.Title>Are sure you want to delete this post</Modal.Title>
+                <Modal.Title
+                style={{color:"white",backgroundColor:"rgb(34, 61, 102)",width:"100%",borderRadius:"15px"}}
+                >Are sure you want to delete post</Modal.Title>
               </Modal.Header>
               <Modal.Footer>
-                <Button variant="secondary" onClick={handleDeleteClose}>
+                <Button variant="secondary" onClick={handleDeleteClose}
+                style={{borderRadius:"18px"}}>
                   Close
                 </Button>
                 <Button variant="danger" onClick={
                     (e)=>{
                         handleDeleteClose()
-                        deleteSelectedPost(post.id)
+                        // console.log(id);
+                        deleteSelectedPost(id)
                     }
-                }>
+                }
+                style={{backgroundColor:"rgb(34, 61, 102)",borderRadius:"18px"}}>
                   Delete
                 </Button>
               </Modal.Footer>
             </Modal>
-          </div>
+              </div>
         );
       })}
     </div>

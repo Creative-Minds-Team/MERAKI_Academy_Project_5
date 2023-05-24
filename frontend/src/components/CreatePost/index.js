@@ -86,21 +86,23 @@ const CreatePost = () => {
 
   return (
     <div className="inpust-post2" >
-      <MDBContainer fluid>
+      <MDBContainer fluid   >
         <MDBCard style={{ borderRadius: "25px"}} >
           <MDBCardBody className="bodyOfCreatOrder">
-            <MDBRow>
+            <MDBRow >
               <MDBCol
                 md="10"
                 lg="8"
                 className="order-2 order-lg-1 d-flex flex-column align-items-center"
+                // style={{backgroundColor:"#768aaa"}}
               >
-                <div className="d-flex flex-row align-items-center mb-4 ">
+                <div className="d-flex flex-row align-items-center mb-4 " >
                   <MDBIcon
                     fas
                     icon="fas fa-heading me-3"
                     size="lg"
                     style={{color:'#2a4d69'}}
+                    
 
                   />
                   <MDBInput
@@ -199,8 +201,8 @@ const CreatePost = () => {
                     className="mb-4"
                     size="lg"
                     style={{ 
-                      color: "#223d66",
-                      backgroundColor: "#d2d8e0",  }}
+                      color: "white",
+                      backgroundColor: "#223d66",}}
                     onClick={() => {
                       setImage(null);
                     }}
@@ -211,8 +213,8 @@ const CreatePost = () => {
                     className="mb-4"
                     size="lg"
                     style={{
-                      color: "#223d66",
-                      backgroundColor: "#d2d8e0",
+                      color: "white",
+                      backgroundColor: "#223d66",
                       marginLeft: "5px",
                     }}
                     onClick={(e) => {

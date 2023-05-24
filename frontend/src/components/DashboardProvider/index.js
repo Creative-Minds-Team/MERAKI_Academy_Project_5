@@ -17,6 +17,7 @@ import CreatePost from "../CreatePost";
 import GetAllOrders from "../GetAllOrders";
 import UserPosts from "../UsersPosts";
 import GetAllOrdersRequester from "../GetAllOrdersRequester";
+import Notifications from "../Notifications";
 const DashboardProvider = () => {
   const [toAccount, setToAccount] = useState(false);
   const [toNotifications, setToNotifications] = useState(false);
@@ -136,7 +137,7 @@ const DashboardProvider = () => {
       <div className={state.language=="ar"?"container_dashboard_provider_ar":"container_dashboard_provider"}>
         <div className="testin-h">
           {toAccount && <UpdateProfile />}
-          {toNotifications && <GetAllNotification />}
+          {toNotifications && <Notifications />}
           {toCreatePost && <CreatePost />}
           {toMyOrder && <GetAllOrders />}
           {toMyPosts && <UserPosts />}
@@ -256,9 +257,11 @@ const DashboardProvider = () => {
         
       </div>
       :
-      <div className={state.language=="ar"?"container_dashboard_provider_ar":"container_dashboard_provider"}>
+      <div className={state.language=="ar"?"container_dashboard_provider_ar":"container_dashboard_provider"}
+        
+      >
 
-      <div className="menu">
+      <div className="menu" style={{minHeight:"100vh"}}>
         <ul className="ul-menu">
           MENU
           {state.userInfo.craft_id != null && (
@@ -378,7 +381,7 @@ const DashboardProvider = () => {
       </div>
       <div className="testin-h">
         {toAccount && <UpdateProfile />}
-        {toNotifications && <GetAllNotification />}
+        {toNotifications && <Notifications />}
         {toCreatePost && <CreatePost />}
         {toMyOrder && <GetAllOrders />}
         {toMyPosts && <UserPosts />}

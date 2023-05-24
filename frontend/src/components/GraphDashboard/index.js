@@ -43,6 +43,7 @@ const GraphDashboard = () =>{
       if(array[i].state_id==3){c++;setCanceled(c)}
     }
     } 
+
     const ChartComponent = (props) => {
     const chartRef = useRef(null);
     useEffect(() => {
@@ -56,7 +57,8 @@ const GraphDashboard = () =>{
             label: "",
             data: [orders.length,pending,completed,canceled],
             // backgroundColor: ["blue", "rgb(170, 46, 37)", "#9ad219", "rgb(0, 0, 0)"],
-            backgroundColor: ["#3e4676", "#505a98", "#5964A9", "#8a92c2"],
+            // backgroundColor: ["#223D66", "#385075", "#4E6384", "#647793"],
+            backgroundColor: ["#9ABEF5", "#aecbf7", "#c2d8f9", "#D6E5FB"],
             
             },
         ],		
@@ -83,9 +85,11 @@ const GraphDashboard = () =>{
                 {
                 label: "no: rated",
                 data: coulmValue,
-                backgroundColor: ["red", "pink", "#c3e6e1", "green", "blue"],
+                // backgroundColor: ["red", "pink", "#c3e6e1", "green", "blue"],
                 // borderColor: "rgba(255, 99, 132, 0.2)",
-                backgroundColor: ["#3e4676", "#505a98", "#5964A9", "#8a92c2"],
+                // backgroundColor: ["#223D66", "#385075", "#4E6384", "#647793"],
+                //9ABEF5         aecbf7                   c2d8f9                        D6E5FB
+                backgroundColor: ["#6b85ab", "#9ABEF5", "#aecbf7", "#c2d8f9","#D6E5FB"],
                 },
             ],
             },
@@ -112,7 +116,7 @@ const GraphDashboard = () =>{
                 label: "",
                 data: [orders.length,pending,completed,canceled],
                 // backgroundColor: ["blue", "rgb(170, 46, 37)", "#9ad219", "rgb(0, 0, 0)"],
-                backgroundColor: ["#3e4676", "#505a98", "#5964A9", "#8a92c2"],
+                backgroundColor: ["#4D8CEA", "#9abef5", "#aecbf7", "#c2d8f9","#D6E5FB"],
             },
             ],		
             },
@@ -140,7 +144,8 @@ const GraphDashboard = () =>{
                 data: coulmValue,
                 // backgroundColor: ["red", "pink", "#c3e6e1", "green", "blue"],
                 // borderColor: "rgba(255, 99, 132, 0.2)",
-                backgroundColor: ["#3e4676", "#505a98", "#5964A9", "#8a92c2"],
+                // backgroundColor: ["#223D66", "#385075", "#4E6384", "#647793"],
+                backgroundColor: ["#4D8CEA", "#9ABEF5", "#aecbf7", "#c2d8f9","#D6E5FB"],
             },
             ],
             },
@@ -154,13 +159,6 @@ const GraphDashboard = () =>{
 
         return <canvas ref={chartRef} />;
     };
-
-
-
-
-
-
-
     const fillterRate = (array) =>{
         let rate1 = 0;
         let rate2 = 0;

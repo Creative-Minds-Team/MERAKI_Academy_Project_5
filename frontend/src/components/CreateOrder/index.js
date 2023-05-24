@@ -179,7 +179,7 @@ const CreateOrder = () => {
   };
   
   return (
-    <div className="containe-create-order" style={{paddingTop:60}}>
+    <div className="containe-create-order" style={{paddingTop:60,minHeight:"80vh"}}>
 
       <button id="myButton1" onClick={()=>{
         window.location.href = `https://api.whatsapp.com/send?phone=962${userPhoneNo}`;
@@ -247,16 +247,18 @@ const CreateOrder = () => {
               if (!value.trim() || !desValue.trim()) {
                 errorNotify();
               } else if(isCraft){
+                console.log("ssssss");
                 handleShow();
 
                 // navigate("/Dashboard/provider");
-                submitFn();
+                // submitFn();
               }else{
                 handleShow();
                 // navigate("/");
                 submitFn();
               }
             }}
+            style={{backgroundColor:"rgb(34, 61, 102)",borderRadius:"18px"}}
           >
             Submit Order
           </MDBBtn>
@@ -269,7 +271,9 @@ const CreateOrder = () => {
           <Modal.Title style={{textAlign:"left"}}>Are you sure you want to confirm this order</Modal.Title>
         </Modal.Header>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={handleClose}
+          style={{borderRadius:"18px"}}
+          >
             Close
           </Button>
           <Button
@@ -278,6 +282,7 @@ const CreateOrder = () => {
               handleClose();
               submitFn();
             }}
+            style={{backgroundColor:"rgb(34, 61, 102)",borderRadius:"18px"}}
           >
             Confirm
           </Button>

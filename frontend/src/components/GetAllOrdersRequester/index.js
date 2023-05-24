@@ -73,6 +73,9 @@ const GetAllOrdersRequester = () => {
                     </div>
                   );
                 })}
+                {orders.length==0&&<>
+                  <h3 style={{color:"white"}}>You dont have any order yet</h3>
+                </>}
               </MDBCardBody>
             </MDBCard>
           </MDBCol>

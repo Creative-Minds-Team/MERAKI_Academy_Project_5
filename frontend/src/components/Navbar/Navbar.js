@@ -139,7 +139,7 @@ const Navbars = () => {
                   >
                     About us{" "}
                   </Nav.Link>
-                  <NavDropdown  menualign="left" style={{color:"red"}}>
+                  <NavDropdown  menualign="left" id="collasible-nav-dropdown" style={{color:"red"}}>
                   {/* <NavDropdown.Item style={{justifyContent: "flex-end",marginLeft:"-25%",background: "none", border: "none"}}> */}
                     
                     <GetAllNotification/>
@@ -150,7 +150,7 @@ const Navbars = () => {
                   <div
                     style={{ color: "white" }}
                     onClick={() => {
-                      navigate("/getAllNotification");
+                      navigate("/Notifications");
                     }}
                   >
                     <FaBell
@@ -164,7 +164,8 @@ const Navbars = () => {
                     </span>
                   </div>
 
-                  <NavDropdown menualign="center" id="collasible-nav-dropdown">
+                  <NavDropdown menualign="center" id="collasible-nav-dropdown"
+                  >
                     <NavDropdown.Item
                       onClick={() => {
                         navigate("/Dashboard/provider");
@@ -227,7 +228,9 @@ const Navbars = () => {
                 <div className="countainer-each-navbar">
                   <p className="eache-navbar-1"onClick={() => {
                       navigate(`/`);
-                    }}>Home</p>
+                    }}
+                    // style={{marginLeft:"-30%"}}
+                    >Home</p>
                   <p className="eache-navbar-1"style={{ opacity: 0 }}>ss</p>
                   <p className="eache-navbar-1" onClick={() => {
                       navigate(`/register`);

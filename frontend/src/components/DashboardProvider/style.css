@@ -71,36 +71,41 @@ h5{
     margin-top: 8%;
 }
 .colorin{
-    background-color: var(--b);
+    background-color: #9ABEF5;
     color:#000000;
     font-weight: bold;
 
 }
-.light-red{
-    background-color: var(--e) ;
+.light-blue{
+    background-color: #aecbf7;
     color: #000D26;
     font-weight: bold;
+
 }
+/* ["#223D66", "#385075", "#4E6384", "#647793"] */
+
 .light-green{
-    background-color:var(--d);
+    background-color:#c2d8f9;
     color:#000D26;
     font-weight: bold;
 
 }
-.light-blue{
-    background-color: var(--c);
+.light-red{
+    background-color:  #D6E5FB;
     color: #000D26;
     font-weight: bold;
-
 }
+
 .ChartComponent-div{
     height: 60vh;
 }
 .hr2{
     
     border: none;
-    border-top: 2px solid gray;
-    height: 1px;
+    /* border-top: 2px solid rgb(166, 32, 32); */
+    background-color: #768aaa;
+    background: linear-gradient(to right, #2c3e55, #385075,#4e6384);
+    height: 50px;
     width: 95%;
     margin-left: 2.5%;
 }
@@ -120,3 +125,6 @@ h5{
 li {
     list-style-type: none;
   }
+  /* div{
+    height: fit-content;
+  } */

@@ -46,7 +46,9 @@ const Support = () => {
                     <div className="error-message"></div>
                     <div className="sent-message">Your message has been sent. Thank you!</div>
   
-                    <button type="submit">ارسل الرسالة</button>
+                    <button type="submit"
+                    style={{backgroundColor:"rgb(34, 61, 102)",borderRadius:"18px"}}
+                    >ارسل الرسالة</button>
                   </div>
   
                 </div>
@@ -150,7 +152,9 @@ const Support = () => {
                     <div className="error-message"></div>
                     <div className="sent-message">Your message has been sent. Thank you!</div>
   
-                    <button type="submit">Send Message</button>
+                    <button type="submit" 
+                      style={{backgroundColor:"rgb(34, 61, 102)",borderRadius:"18px"}}
+                    >Send Message</button>
                   </div>
   
                 </div>

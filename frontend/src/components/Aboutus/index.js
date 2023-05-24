@@ -7,7 +7,7 @@ const Aboutus = () => {
     };
   });
   return (
-    <section id="about" className="about" style={{paddingTop:"10px"}}>
+    <section id="about" className="about" style={{paddingTop:"10px",marginTop:"3%"}}>
       <div className="container" data-aos="fade-up">
         <div className="row gy-4">
         {state.language=="ar"?
@@ -65,7 +65,7 @@ const Aboutus = () => {
             />
           </div>
           <div className="col-lg-6 content order-last  order-lg-first">
-            <h4>About Us</h4>
+            <h4 style={{marginLeft:"3%"}}>About Us</h4>
             <ul>
               <li data-aos="fade-up" data-aos-delay="100">
                 <i className="bi bi-diagram-3"></i>

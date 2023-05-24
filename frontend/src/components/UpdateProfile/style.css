@@ -20,7 +20,7 @@
 .header-title-profile {
   margin: 0;
   font-size: 2rem;
-  font-family: "Agrandir,Helvetica Neue,Helvetica,Arial,sans-serif";
+  font-family: system-ui;
 }
 
 .card-body-profile {

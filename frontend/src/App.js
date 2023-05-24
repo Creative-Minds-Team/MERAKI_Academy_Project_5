@@ -24,6 +24,7 @@ import { useSelector } from "react-redux";
 import Navbarar from "./components/Navbarar/Navbar";
 import Footerar from "./components/Footerar";
 import Notifications from "./components/Notifications";
+import FillterAndSearch from "./components/FillterAndSearch";
 function App() {
   const state = useSelector((state) => {
     return {
@@ -56,6 +57,7 @@ function App() {
         <Route path="/support" element={<Support/>}/>
         <Route path="/update/profile" element={<UpdateProfile/>}/>
         <Route path="/dashboard/graph" element={<GraphDashboard/>}/>
+        <Route path="/home/fillter" element={<FillterAndSearch/>}/>
       </Routes>
       {state.language=="ar"?
       <Footerar/>:<Footer/>

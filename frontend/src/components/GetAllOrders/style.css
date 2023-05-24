@@ -12,9 +12,10 @@
     width: 28vw;
     margin-left: 27vw;
     color: #223d66;
-    font-weight: 800;
-    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+    /* font-family: 'Times New Roman', Times, serif; */
 margin-top: 20px;
+font-family: system-ui;
 margin-bottom: -45px;
 }
 
@@ -42,6 +43,7 @@ margin-right: 29px;
 font-weight: 400;
 align-items: center;
 margin-top: -12px;
+font-family: system-ui;
 }
 .cardOrderheader{
     font-weight: 500;
