@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import axios from "axios";
 import "./index.css";
 import { useNavigate } from "react-router-dom";
@@ -14,7 +14,7 @@ import {
   MDBCardImage,
   MDBBtn,
 } from "mdb-react-ui-kit";
-
+import ReactPlayer from 'react-player'
 const Home = () => {
   const [page, setPage] = useState(1);
   const [browse, setBrowse] = useState(false);
@@ -57,6 +57,9 @@ const Home = () => {
     navigate("/CreateOrder", { state: { id, user_id } });
   };
   const mood = state.mood;
+
+  const playerRef = useRef(null);
+
   const testARcraft = (string)=>{
     if (string=="Blacksmith") {
       return "حداد"
@@ -80,6 +83,7 @@ const Home = () => {
       return "نجار"
     }
   }
+
   return (
     <>
       {
@@ -171,20 +175,18 @@ const Home = () => {
                 </div>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 text-center text-lg-start">
-                <img
-                  src={require('./3.PNG')}
 
-                  class="img-fluid"
-                  alt=""
-                  data-aos="zoom-out"
-                  data-aos-delay="300"
-                />
+                
+                <ReactPlayer url={require('./Video.mp4')} ref={playerRef} controls={true} />
+
+                
               </div>
             </div>
           </div>
         </section>
       </header> 
       }
+
         <div className="container1" style={{}}>
           {state.posts.map((post, i) => {
             // console.log(post);
@@ -228,6 +230,7 @@ const Home = () => {
             );
           })}
         </div>
+
       <MDBBtn
         onClick={() => {
           setPage(page - 1);
