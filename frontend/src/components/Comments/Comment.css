@@ -28,15 +28,18 @@ max-width: 50%;
   height: 25vh;
   border-radius: 40px;
   margin-left: 6.5%;
-  background-color:#E5E5E5
+  background-color:#223d66
 }
 .comment2{
   font-family: Arial,sans-serif;
-  font-size: 14px!important;
-    line-height: 20px!important;
+  font-size: 22px!important;
+    line-height: 18px!important;
+    border-radius: 30%;
+
     
 }
 .comment3{
-  font-size: 20px;
+  font-size: 26px;
   color: black;
+  letter-spacing: 3px;
 }

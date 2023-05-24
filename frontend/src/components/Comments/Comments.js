@@ -97,18 +97,19 @@ const Comments = (s) => {
     <div className="all-orders-div" style={{ marginLeft: "0"}}>
       <MDBContainer
         className="mt-5"
-        style={{ width: "100%", textAlign: "center" }}
+        style={{ width: "100%", textAlign: "left" }}
       >
         <MDBRow className="justify-content-center">
           <MDBCol md="8" lg="6">
             <MDBCard
               className="shadow-0 border"
               style={{
-                backgroundColor: "#c6c6c6",
+                backgroundColor: "#223d66",
                 margin: "0",
-                textAlign: "center",
+                textAlign: "left",
                 widows: "80%",
                 marginLeft: "10%",
+
               }}
             >
               {/* { console.log(comments.length)} */}
@@ -120,7 +121,7 @@ const Comments = (s) => {
                         <MDBCardBody>
                           <MDBCard className="mb-4 cardOrderBody">
                             <MDBCardBody>
-                              <div className="d-flex flex-row align-items-center comment2">
+                              <div className="d-flex flex-col align-items-center comment2">
                                 <MDBCardImage
                                   src={comment.user_image}
                                   alt="avatar"
@@ -135,7 +136,8 @@ const Comments = (s) => {
                               <Card.Title>
                                 <p
                                   className="small text-muted mb-0 comment2"
-                                  style={{ textAlign: "left" }}
+                                  style={{ textAlign: "left" , fontSize :'18px',letterSpacing:'3px',
+                                margin: '5px'}}
                                 >
                                   {comment.created_on &&
                                     comment.created_on.split("").splice(0, 10)}
