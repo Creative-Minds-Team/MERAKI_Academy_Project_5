@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import axios from "axios";
 import "./index.css";
 import { useNavigate } from "react-router-dom";
@@ -14,7 +14,7 @@ import {
   MDBCardImage,
   MDBBtn,
 } from "mdb-react-ui-kit";
-
+import ReactPlayer from 'react-player'
 const Home = () => {
   const [page, setPage] = useState(1);
   const [browse, setBrowse] = useState(false);
@@ -55,6 +55,7 @@ const Home = () => {
     navigate("/CreateOrder", { state: { id, user_id } });
   };
   const mood = state.mood;
+  const playerRef = useRef(null);
   return (
     <>
       {
@@ -144,24 +145,10 @@ const Home = () => {
                 </div>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 text-center text-lg-start">
-                <img
+                
+                <ReactPlayer url={require('./Video.mp4')} ref={playerRef} controls={true} />
 
-                  // src={require('./2.PNG')}
-                  src={`https://i.pinimg.com/564x/41/4d/74/414d742178e86d68d0b3c167afc8babb.jpg`}
-
-                  //src={require('./1.png')}
-
-                  class="img-fluid"
-                  alt=""
-                  data-aos="zoom-out"
-                  data-aos-delay="300"
-                />
-
-                {/* <iframe src="https://giphy.com/embed/fgnHy6XLJRuVcu6dUa" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a ></a></p> */}
-                {/* <iframe src="https://giphy.com/embed/F14BrsUdpzcc1wsSbV" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen style={{borderRadius:"50px"}}></iframe><p><a href="https://giphy.com/gifs/KLM-aviation-aircraft-klm-F14BrsUdpzcc1wsSbV"></a></p> */}
-                {/* <iframe src="https://giphy.com/embed/BywAPqjtfmpKo" width="336" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/BywAPqjtfmpKo">via GIPHY</a></p> */}
-
-                {/* <iframe src="https://giphy.com/embed/bTs6KvyvPeDNxg2gam" width="480" height="432" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/revisione-assistenza-tecnica-macchine-utensili-bTs6KvyvPeDNxg2gam"></a></p> */}
+                
               </div>
             </div>
           </div>
@@ -172,9 +159,10 @@ const Home = () => {
         {state.posts.map((post, i) => {
           return (
             <div key={i}>
+              {console.log(post)}
               <MDBCard className="car">
                 <MDBCardTitle>             
-                  <p className="titleInPost">{post.title}
+                  <p className="titleInPost">{post.name}
                   </p>
                 
                 </MDBCardTitle>
@@ -186,7 +174,9 @@ const Home = () => {
                   alt="..."
                 />
                 <MDBCardBody>
-                <MDBCardText className="nameCard"> {post.first_name} {post.last_name}</MDBCardText>              
+                <MDBCardText className="nameCard"> {post.first_name} {post.last_name}</MDBCardText>    
+                <MDBCardText className="nameCard"> <p className="titleInPost">{post.title}
+                  </p></MDBCardText>          
                   <MDBCardText>{post.pricing} $/h</MDBCardText>
                   <MDBBtn
                     onClick={() => {

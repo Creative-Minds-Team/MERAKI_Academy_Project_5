@@ -106,14 +106,19 @@ const deletePostById = (req, res) => {
       });
     });
 };
+
 const getAllPosts = (req, res) => {
   const page = parseInt(req.query.page);
   const limit = parseInt(req.query.limit);
   const offset = (page - 1) * limit;
 const newQ=`SELECT u.first_name, u.last_name,u.user_image,p.user_id, p.description, p.pricing, p.title, p.created_on ,p.post_image ,p.id FROM posts p INNER JOIN users u ON u.id = p.user_id ORDER BY p.id ASC LIMIT $1 OFFSET $2`
   const queryString = `SELECT * FROM posts ORDER BY id ASC LIMIT $1 OFFSET $2`;
-
-  const queryStringForCount = `SELECT COUNT(*) FROM posts`;
+const query =`SELECT u.first_name, u.last_name, u.user_image, p.user_id, p.pricing, p.title, p.post_image, p.id, c.name
+FROM posts p 
+INNER JOIN users u ON u.id = p.user_id
+INNER JOIN crafts c ON u.craft_id = c.id  LIMIT $1 OFFSET $2`
+  const queryStringForCount =
+   `SELECT COUNT(*) FROM posts`;
 
   const placeholder = [limit, offset];
 
@@ -123,7 +128,7 @@ const newQ=`SELECT u.first_name, u.last_name,u.user_image,p.user_id, p.descripti
       const count = parseInt(result.rows[0].count);
       const totalPages = Math.ceil(count / limit);
       pool
-        .query(newQ, placeholder)
+        .query(query, placeholder)
         .then((result) => {
           const posts = result.rows;
           res.status(200).json({
@@ -134,6 +139,7 @@ const newQ=`SELECT u.first_name, u.last_name,u.user_image,p.user_id, p.descripti
             currentPage: page,
             posts,
           });
+         
         })
         .catch((err) => {
           res.status(500).json({
