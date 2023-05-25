@@ -146,7 +146,7 @@ const Comments = (s) => {
 
                               <p
                                 className="comment2"
-                                style={{ color: "#0F1111" }}
+                                
                               >
                                 {comment.description}
                               </p>
