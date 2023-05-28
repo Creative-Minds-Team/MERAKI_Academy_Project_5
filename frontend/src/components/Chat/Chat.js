@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import "./Chat.css";
 import axios from "axios";
+
+
 import { useSelector } from "react-redux";
 const Chat = () => {
   const state = useSelector((state) => {
@@ -11,8 +13,11 @@ const Chat = () => {
   });
  const [content, setContent] = useState("");
   const [output, setOutput] = useState("");
+  // const [apiKey, setApiKey] = useState(process.env.OPENAI_API_KEY2);
+  
   const ChatNow = async () => {
-    const apiKey = "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";
+    const apiKey = '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'
+    console.log('API_KEY:',apiKey);
     const requset = {
       model: "gpt-3.5-turbo",
       messages: [
@@ -21,6 +26,7 @@ const Chat = () => {
           content: content,
         },
       ],
+
       temperature: 0.7,
       max_tokens: 200,
     };
