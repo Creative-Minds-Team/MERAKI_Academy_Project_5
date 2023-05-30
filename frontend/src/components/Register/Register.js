@@ -104,7 +104,6 @@ function Register() {
       }, 3000);
       return () => clearTimeout();
     } catch (err) {
-      console.log("sssssss");
       console.log(err);
 
       setIsLoading(true);
