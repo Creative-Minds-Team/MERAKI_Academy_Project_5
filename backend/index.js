@@ -12,6 +12,7 @@ const postsRouter = require("./routes/posts");
 const commentsRouter = require("./routes/comments")
 const reviewRouter=require('./routes/reviews')
 const roleRouter=require('./routes/role')
+const chatRouter=require('./routes/chat')
 
 const stateRouter =require('./routes/state');
 const orderRouter = require("./routes/orders");
@@ -27,6 +28,7 @@ app.use("/crafts", craftsRouter);
 app.use("/posts", postsRouter);
 app.use("/comments", commentsRouter)
 app.use('/state',stateRouter)
+app.use('/chat',chatRouter)
 
 app.use('/review',reviewRouter);
 app.use('/role', roleRouter)

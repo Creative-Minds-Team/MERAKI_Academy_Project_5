@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import "./Chat.css";
 import axios from "axios";
+
+
 import { useSelector } from "react-redux";
 const Chat = () => {
   const state = useSelector((state) => {
@@ -9,34 +11,36 @@ const Chat = () => {
       language: state.auth.language
     };
   });
- const [content, setContent] = useState("");
+ const [input, setContent] = useState("");
   const [output, setOutput] = useState("");
+  // const [apiKey, setApiKey] = useState(process.env.OPENAI_API_KEY2);
+  
   const ChatNow = async () => {
-    const apiKey = "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";
-    const requset = {
-      model: "gpt-3.5-turbo",
-      messages: [
-        {
-          role: "user",
-          content: content,
-        },
-      ],
-      temperature: 0.7,
-      max_tokens: 200,
-    };
-    axios
-      .post(`https://api.openai.com/v1/chat/completions`, requset, {
-        headers: {
-          "Content-Type": "application/json",
-          authorization: `Bearer ${apiKey}`,
-        },
-      })
+    console.log(input);
+    // const apiKey = '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'
+    // console.log('API_KEY:',apiKey);
+    // const requset = {
+    //   model: "gpt-3.5-turbo",
+    //   messages: [
+    //     {
+    //       role: "user",
+    //       content: content,
+    //     },
+    //   ],
+
+    //   temperature: 0.7,
+    //   max_tokens: 200,
+    // };
+   
+    await axios
+      .post  (`http://localhost:5000/chat/`,{input})
       .then((result) => {
         console.log(result);
-        setOutput(result.data.choices[0].message.content)
+        setOutput(result.data.result)
       })
       .catch((err) => {
-        console.log(err.response.data.error.message);
+        console.log(err.message);
+        setOutput(err.message)
       });
   };
   
